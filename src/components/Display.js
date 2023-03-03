@@ -5,7 +5,13 @@ import CustomCard from "./CustomCard";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 
-const Display = () => {
+const Display = ({ setDisplay, taskSwitcher, display }) => {
+  const AllList = display.map((item) => (item.type = "All"));
+  const SatisfactoryList = display.map((item) => (item.type = "Satisfactory"));
+  const UnSatisfactoryList = display.map(
+    (item) => (item.type = "Not-Satisfactory")
+  );
+
   return (
     <div className="bg-secondary p-5 rounded shadow-lg">
       <div className="">
@@ -19,7 +25,7 @@ const Display = () => {
       <hr />
       <Row>
         <Col>
-          <CustomCard />
+          <CustomCard setDisplay={setDisplay} taskSwitcher={taskSwitcher} />
         </Col>
       </Row>
     </div>

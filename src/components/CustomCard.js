@@ -2,7 +2,7 @@ import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-const CustomCard = ({ searchedMovie }) => {
+const CustomCard = ({ searchedMovie, taskSwitcher, setDisplay }) => {
   return (
     <Card style={{ width: "18rem", color: "black" }}>
       <Card.Img variant="top" src={searchedMovie?.Poster} />
@@ -11,7 +11,8 @@ const CustomCard = ({ searchedMovie }) => {
 
         <Card.Text>Actors: {searchedMovie?.Actors}</Card.Text>
         <Card.Text>
-          Rating:{searchedMovie?.Ratings[1].value} <br />
+          Rating:{searchedMovie?.Ratings && searchedMovie?.Ratings[0]?.Value}{" "}
+          <br />
         </Card.Text>
 
         <div className="d-flex justify-content-between">
